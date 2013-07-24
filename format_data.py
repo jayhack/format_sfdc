@@ -24,15 +24,6 @@ mailing_city_name = "Mailing_City"
 mailing_state_name = "Mailing_State/Province"
 mailing_country_name = "Mailing_Country"
 
-#---- for sentiment ----
-PATTERN_MODULE_MAC = "/Users/Shared/pattern-2.5"
-PATTERN_MODULE_WIMPY = "/home/jhack/Programming/Scraper2/pattern_install_directory/lib/python2.6/site-packages"
-if PATTERN_MODULE_MAC not in sys.path:
-	sys.path.append(PATTERN_MODULE_MAC)
-if PATTERN_MODULE_WIMPY not in sys.path:
-	sys.path.append (PATTERN_MODULE_WIMPY)
-from pattern.en import sentiment
-
 
 #---- for dumping rows ----
 from dump_info import dump_row
@@ -104,7 +95,7 @@ def reformat_csv_file (filename_raw, filename_formatted, filetype):
 
 	# print ("---> reformatting" + filename_raw + "... ")
 
-	raw_file = open (filename_raw, 'r')
+	raw_file = open (filename_raw, 'rU')
 	formatted_file = open(filename_formatted, 'w')
 	reader = csv.reader (raw_file, delimiter=',', quotechar='"')
 
